@@ -1,0 +1,13 @@
+product_id,product,category,list_price,unit_cost
+P001,Aurora X1 Smartphone,Smartphones,2499.0,1650.0
+P002,Aurora Lite Smartphone,Smartphones,1299.0,880.0
+P003,Aurora Pro 14 Laptop,Laptops,5899.0,4300.0
+P004,Aurora Air 13 Laptop,Laptops,3999.0,2900.0
+P005,Pulse Bluetooth Headphones,Audio,349.0,140.0
+P006,Boom Speaker,Audio,599.0,290.0
+P007,Fit 2 Smartwatch,Wearables,899.0,470.0
+P008,Fitness Band,Wearables,249.0,110.0
+P009,Aurora Tab 10 Tablet,Tablets,1899.0,1300.0
+P010,Turbo 65W Charger,Accessories,179.0,60.0
+P011,Slim Protective Case,Accessories,79.0,18.0
+P012,Glide Wireless Mouse,Accessories,129.0,45.0

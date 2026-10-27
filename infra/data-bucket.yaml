@@ -1,0 +1,58 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Amazon Quick demo - private S3 bucket with the Aurora Electronics data
+  (sales, targets, products and documents). Used in Lab 02 / Lab 04.
+
+Parameters:
+  ProjectName:
+    Type: String
+    Default: aurora-quick-demo
+    AllowedPattern: "[a-z0-9-]+"
+    Description: Prefix used in the bucket name (lowercase letters, numbers and hyphens only).
+
+Resources:
+  DataBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${ProjectName}-${AWS::AccountId}-${AWS::Region}"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      Tags:
+        - Key: project
+          Value: !Ref ProjectName
+
+  TlsOnlyPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref DataBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: DenyNonTLS
+            Effect: Deny
+            Principal: "*"
+            Action: "s3:*"
+            Resource:
+              - !GetAtt DataBucket.Arn
+              - !Sub "${DataBucket.Arn}/*"
+            Condition:
+              Bool:
+                aws:SecureTransport: "false"
+
+Outputs:
+  BucketName:
+    Description: Bucket name - authorize this bucket in Amazon Quick (Manage Quick > Security & permissions > AWS resources > S3)
+    Value: !Ref DataBucket
+  SalesManifestUrl:
+    Description: S3 URL of the manifest used to create the sales dataset in Quick Sight
+    Value: !Sub "s3://${DataBucket}/manifests/sales-manifest.json"
