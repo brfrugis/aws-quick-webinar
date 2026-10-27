@@ -40,6 +40,7 @@ aws-quick-webinar/
 ├── README.md                  ← you are here
 ├── PRESENTER_SCRIPT.md        ← minute-by-minute webinar script
 ├── PRE_WEBINAR_CHECKLIST.md   ← presenter preparation
+├── assets/demo-flow.png       ← one-page overview of the demo flow
 ├── labs/                      ← step-by-step guides for participants
 ├── prompts/demo-prompts.md    ← every prompt to copy and paste + expected answers
 ├── data/                      ← generator and CSVs (sales, targets, products)

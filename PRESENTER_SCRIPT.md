@@ -1,8 +1,10 @@
 # Presenter script — Webinar "Amazon Quick in practice: from zero to your first agent"
 
-**Audience:** beginner/intermediate · **Duration:** 75 min (60 min content + 15 min Q&A)
-**Format:** 2 presenters — **A** (narrator/slides) and **B** (hands on the console). If you are presenting alone, play both roles.
+**Audience:** beginner/intermediate · **Duration:** 75 min (63 min content + 12 min Q&A)
+**Format:** 2 presenters — **AWS** presents the foundation (Blocks 0–3: opening, what Amazon Quick is, setup, demo data) and **Elevata** presents the hands-on demo and wrap-up (Blocks 4–10). Each presenter narrates and drives the console in their own blocks.
 **Use case:** *Aurora Electronics*, a fictitious e-commerce company that wants to (1) understand its sales, (2) answer customers faster and (3) automate repetitive tasks.
+
+![Demo flow](assets/demo-flow.png)
 
 > Legend: 🎤 = suggested talking points · 🖱️ = on-screen action · ⚠️ = caution/plan B · ⏱️ = cumulative time
 
@@ -10,19 +12,19 @@
 
 ## Timing overview
 
-| # | Block | Min | ⏱️ | Repository lab |
-|---|---|---|---|---|
-| 0 | Opening and agenda | 4 | 0:04 | — |
-| 1 | What is Amazon Quick | 6 | 0:10 | — |
-| 2 | Setup (account, region, users) | 8 | 0:18 | `labs/01` |
-| 3 | Demo data (S3 + CloudFormation) | 4 | 0:22 | `labs/02` |
-| 4 | Chat + Spaces (company knowledge) | 9 | 0:31 | `labs/03` |
-| 5 | Quick Sight: dataset → dashboard → questions | 14 | 0:45 | `labs/04` |
-| 6 | Custom chat agent | 6 | 0:51 | `labs/05` |
-| 7 | Quick Flows (natural-language automation) | 6 | 0:57 | `labs/06` |
-| 8 | Quick Research (intermediate bonus) | 3 | 1:00 | `labs/07` |
-| 9 | Costs, governance and cleanup | 3 | 1:03 | `labs/08` |
-| 10 | Q&A and closing | 12 | 1:15 | — |
+| # | Block | Min | ⏱️ | Presenter | Repository lab |
+|---|---|---|---|---|---|
+| 0 | Opening and agenda | 4 | 0:04 | AWS | — |
+| 1 | What is Amazon Quick | 6 | 0:10 | AWS | — |
+| 2 | Setup (account, region, users) | 8 | 0:18 | AWS | `labs/01` |
+| 3 | Demo data (S3 + CloudFormation) | 4 | 0:22 | AWS | `labs/02` |
+| 4 | Chat + Spaces (company knowledge) | 9 | 0:31 | Elevata | `labs/03` |
+| 5 | Quick Sight: dataset → dashboard → questions | 14 | 0:45 | Elevata | `labs/04` |
+| 6 | Custom chat agent | 6 | 0:51 | Elevata | `labs/05` |
+| 7 | Quick Flows (natural-language automation) | 6 | 0:57 | Elevata | `labs/06` |
+| 8 | Quick Research (intermediate bonus) | 3 | 1:00 | Elevata | `labs/07` |
+| 9 | Costs, governance and cleanup | 3 | 1:03 | Elevata | `labs/08` |
+| 10 | Q&A and closing | 12 | 1:15 | Elevata | — |
 
 **If you run short on time, cut in this order:** Block 8 → the *Topics* part of Block 5 → Block 3 (show only the finished result).
 
@@ -30,11 +32,11 @@
 
 ## Block 0 — Opening (4 min) ⏱️ 0:04
 
-🎤 **A:** "Welcome! Today we'll start from scratch, turn on Amazon Quick in an AWS account and, in one hour, have a dashboard, a knowledge space, an AI agent and an automation up and running. Everything we do here is in the repository we'll share in the chat, with step-by-step instructions so you can redo it at your own pace."
+🎤 **AWS:** "Welcome! Today we'll start from scratch, turn on Amazon Quick in an AWS account and, in one hour, have a dashboard, a knowledge space, an AI agent and an automation up and running. Everything we do here is in the repository we'll share in the chat, with step-by-step instructions so you can redo it at your own pace."
 
-🖱️ **A:** Slide with the repository link and QR code.
+🖱️ **AWS:** Slide with the repository link and QR code.
 
-🎤 **A:** "Our fictitious customer is Aurora Electronics, an e-commerce company with three pain points: *I don't know what's happening with sales*, *customer service takes too long to answer according to our policy*, and *the team wastes time on repetitive tasks*. Each part of the demo solves one of these pain points."
+🎤 **AWS:** "Our fictitious customer is Aurora Electronics, an e-commerce company with three pain points: *I don't know what's happening with sales*, *customer service takes too long to answer according to our policy*, and *the team wastes time on repetitive tasks*. Each part of the demo solves one of these pain points."
 
 🖱️ Agenda slide (table above, block names only).
 
@@ -42,7 +44,7 @@
 
 ## Block 1 — What is Amazon Quick (6 min) ⏱️ 0:10
 
-🎤 **A:** "Amazon Quick is AWS's AI agent–powered workspace. It evolved from QuickSight, which is now **Quick Sight**, one of its components. Think of it as 'one place' to ask, analyze, research and automate."
+🎤 **AWS:** "Amazon Quick is AWS's AI agent–powered workspace. It evolved from QuickSight, which is now **Quick Sight**, one of its components. Think of it as 'one place' to ask, analyze, research and automate."
 
 🖱️ Components slide:
 
@@ -57,7 +59,7 @@
 | **Quick Research** | Deep research (web + your data) delivered as a cited report | Block 8 |
 | **Integrations / Actions** | Connects apps (Slack, Teams, Jira, Salesforce, MCP, OpenAPI…) | Mentioned |
 
-🎤 **A:** "There are two ways to get started: **individual**, at aws.com/quick, with an email and no AWS account (Free/Plus plans), or **enterprise**, through the AWS console, with IAM Identity Center or federation, AWS billing and governance. Today we'll take the enterprise path, which is what most companies use."
+🎤 **AWS:** "There are two ways to get started: **individual**, at aws.com/quick, with an email and no AWS account (Free/Plus plans), or **enterprise**, through the AWS console, with IAM Identity Center or federation, AWS billing and governance. Today we'll take the enterprise path, which is what most companies use."
 
 ⚠️ Don't quote prices out loud as final. Say: "up-to-date prices are on the official pricing page; there's a 30-day trial for up to 25 users." (Details in `labs/08`.)
 
@@ -67,11 +69,11 @@
 
 > **Pre-recorded or live?** Creating the account takes a few minutes, but **it can only be done once per AWS account**. Recommendation: do it live in a **brand-new sandbox AWS account** and have a 2-min **backup video**. See `PRE_WEBINAR_CHECKLIST.md`.
 
-🖱️ **B:** AWS console → search for **"Quick"** (it is also under *Analytics*).
+🖱️ **AWS:** AWS console → search for **"Quick"** (it is also under *Analytics*).
 
-🎤 **A:** "First important point: whoever subscribes needs IAM permissions for Quick. In companies using AWS Organizations, check that no SCP is blocking it."
+🎤 **AWS:** "First important point: whoever subscribes needs IAM permissions for Quick. In companies using AWS Organizations, check that no SCP is blocking it."
 
-🖱️ **B:** Subscription screen, filling in:
+🖱️ **AWS:** Subscription screen, filling in:
 1. **Quick account name**: `aurora-demo-<your-name>` (must be globally unique).
 2. **Notification email**.
 3. **Region**: choose the region that will hold your data (e.g., `us-east-1`). 🎤 "The region matters: the S3 data we'll use must be in the same region."
@@ -81,9 +83,9 @@
    - *Single Sign-On only* / *Active Directory*
 5. **Create account** → **Go to Quick**.
 
-🎤 **A:** "Done, Quick is enabled. Now let's invite people."
+🎤 **AWS:** "Done, Quick is enabled. Now let's invite people."
 
-🖱️ **B:** User icon (top right) → **Manage Quick** → **Manage users** → **Invite users**. Show the roles:
+🖱️ **AWS:** User icon (top right) → **Manage Quick** → **Manage users** → **Invite users**. Show the roles:
 
 | Role | What it does |
 |---|---|
@@ -91,40 +93,42 @@
 | **Author** | Creates datasets, analyses, dashboards, agents, flows |
 | **Reader** | Consumes dashboards, chats with agents, runs flows |
 
-🎤 **A:** "Governance tip: start with a few *Authors* and many *Readers*. In production, manage this through IAM Identity Center **groups** instead of user by user."
+🎤 **AWS:** "Governance tip: start with a few *Authors* and many *Readers*. In production, manage this through IAM Identity Center **groups** instead of user by user."
 
-🖱️ **B:** Still in *Manage Quick*, quickly show **Security & permissions** → **AWS resources** (we'll come back here in Block 5 to grant S3 access).
+🖱️ **AWS:** Still in *Manage Quick*, quickly show **Security & permissions** → **AWS resources** (we'll come back here in Block 5 to grant S3 access).
 
 ---
 
 ## Block 3 — Demo data (4 min) ⏱️ 0:22
 
-🎤 **A:** "So everyone sees the same numbers, the repository has a script that generates 12 months of fictitious data and uploads everything to a private S3 bucket using CloudFormation."
+🎤 **AWS:** "So everyone sees the same numbers, the repository has a script that generates 12 months of fictitious data and uploads everything to a private S3 bucket using CloudFormation."
 
-🖱️ **B:** Terminal (large font!):
+🖱️ **AWS:** Terminal (large font!):
 ```bash
 git clone <REPO-URL> && cd aws-quick-webinar
 ./scripts/prepare-data.sh
 ```
 
-🎤 **B (while it runs):** "The script generates `sales.csv` with about 8,000 rows, plus `targets.csv` and `products.csv`, creates the bucket with encryption and public access blocked, uploads the company documents and creates the *manifests* Quick Sight uses to read from S3."
+🎤 **AWS (while it runs):** "The script generates `sales.csv` with about 8,000 rows, plus `targets.csv` and `products.csv`, creates the bucket with encryption and public access blocked, uploads the company documents and creates the *manifests* Quick Sight uses to read from S3."
 
 ⚠️ **Plan B:** if the deployment is slow, show the already-created bucket in the S3 console and move on. For beginners, Block 5 also works with a **direct CSV upload**, no S3 needed.
+
+🔁 **Hand-off — AWS → Elevata:** 🎤 **AWS:** "Our environment and data are ready. Now I'll hand over to Elevata, who will show what we can build with Amazon Quick on top of them." (Switch screen sharing to the Elevata presenter.)
 
 ---
 
 ## Block 4 — Chat + Spaces (9 min) ⏱️ 0:31
 
-🎤 **A:** "First pain point: customer service needs to answer based on company policy. Let's give the AI that knowledge with a **Space**."
+🎤 **Elevata:** "First pain point: customer service needs to answer based on company policy. Let's give the AI that knowledge with a **Space**."
 
-🖱️ **B:**
+🖱️ **Elevata:**
 1. Left menu → **Spaces** → **Create space** → Name: `Aurora Customer Service`. Description: *Customer service team policies and materials*.
 2. **Add knowledge / Upload files** → drag in the 3 files from the `documents/` folder.
 3. Wait for indexing (a few seconds to a few minutes).
 
-🎤 **A:** "Spaces are like smart folders: you add files (and also dashboards, datasets and knowledge bases) and share them with your team. Everything in there becomes context for the chat."
+🎤 **Elevata:** "Spaces are like smart folders: you add files (and also dashboards, datasets and knowledge bases) and share them with your team. Everything in there becomes context for the chat."
 
-🖱️ **B:** Open the chat **inside the Space** and use the prompts from `prompts/demo-prompts.md` → *Block 4*:
+🖱️ **Elevata:** Open the chat **inside the Space** and use the prompts from `prompts/demo-prompts.md` → *Block 4*:
 
 1. `What is the deadline to return a defective product bought 45 days ago?`
    → 🎤 "Notice the **citation** of the document. Answer: repair center, up to 30 days for repair."
@@ -139,25 +143,25 @@ git clone <REPO-URL> && cd aws-quick-webinar
 
 ## Block 5 — Quick Sight (14 min) ⏱️ 0:45
 
-🎤 **A:** "Second pain point: understanding sales. Let's go from CSV to dashboard in a few minutes and then **ask** the data questions."
+🎤 **Elevata:** "Second pain point: understanding sales. Let's go from CSV to dashboard in a few minutes and then **ask** the data questions."
 
 ### 5.1 Grant S3 access (1 min)
-🖱️ **B:** User icon → **Manage Quick** → **Security & permissions** → **AWS resources** → **Amazon S3** → select the `aurora-quick-demo-...` bucket → **Save**.
+🖱️ **Elevata:** User icon → **Manage Quick** → **Security & permissions** → **AWS resources** → **Amazon S3** → select the `aurora-quick-demo-...` bucket → **Save**.
 
 ### 5.2 Create the datasets (3 min)
-🖱️ **B:** Left menu → **Data** → **Create** → **New dataset** → **Amazon S3**.
+🖱️ **Elevata:** Left menu → **Data** → **Create** → **New dataset** → **Amazon S3**.
 - Name: `sales` · Manifest URL: `s3://<bucket>/manifests/sales-manifest.json` → **Connect** → **Edit/Preview data**.
 - Quick type fixes: `order_date` = **Date**; `revenue`, `total_cost`, `unit_price` = **Decimal**.
 - Create a calculated field: `profit = revenue - total_cost`.
 - **Publish & visualize**.
 - (Repeat for `targets` in the background, or have it ready beforehand.)
 
-🎤 **A:** "The data lives in **SPICE**, Quick Sight's in-memory engine, which is why queries are fast."
+🎤 **Elevata:** "The data lives in **SPICE**, Quick Sight's in-memory engine, which is why queries are fast."
 
 ⚠️ **Plan B (beginner):** **Data** → **Create** → **New dataset** → **Upload a file** → `data/sales.csv`.
 
 ### 5.3 Analysis and dashboard (6 min)
-🖱️ **B:** In the analysis:
+🖱️ **Elevata:** In the analysis:
 1. **KPI**: sum of `revenue` (filter `status = Delivered`).
 2. **Line**: `order_date` (month) × `revenue` → 🎤 "Look at the Black Friday peak in November and at Christmas."
 3. **Bars**: `region` × `revenue`, colored by month or filtered by half-year → 🎤 "The Northeast grows all year long."
@@ -166,17 +170,17 @@ git clone <REPO-URL> && cd aws-quick-webinar
 6. Use the **analysis AI assistant** (AI icon / *Build visual*): `Show the return rate by product`.
 7. **Publish** → **Publish dashboard** → name it `Aurora Sales`.
 
-🎤 **A:** "The dashboard is what business users consume. The analysis is the author's 'draft'."
+🎤 **Elevata:** "The dashboard is what business users consume. The analysis is the author's 'draft'."
 
 ### 5.4 Ask the data (4 min)
-🖱️ **B:** Show two ways:
+🖱️ **Elevata:** Show two ways:
 - **Topics**: menu → **Topics** → **Create topic** → name `Aurora Sales`, dataset `sales`. 🎤 "A *Topic* teaches the AI your business vocabulary: synonyms, which field means 'turnover', and so on."
 - **Chat**: add the dashboard/topic to the `Aurora Customer Service` Space (or create an `Aurora Sales Team` Space) and ask:
   - `Which product has the highest return rate and what is the main reason?`
   - `Did the Northeast hit its target in October 2026?` (requires the `targets` dataset)
   - `Compare App versus Website revenue over the last 6 months.`
 
-🎤 **A ("wow" moment):** "Now bring the two worlds together: the **data** shows the Pulse headphones have a 24% return rate, and the **document** explains why: a faulty battery batch. Ask: *Why do the Pulse Bluetooth Headphones have so many returns, and what is being done about it?*"
+🎤 **Elevata ("wow" moment):** "Now bring the two worlds together: the **data** shows the Pulse headphones have a 24% return rate, and the **document** explains why: a faulty battery batch. Ask: *Why do the Pulse Bluetooth Headphones have so many returns, and what is being done about it?*"
 
 ⚠️ Topic creation can take a few minutes to index. **Have a Topic ready** before the webinar and show creation only as navigation.
 
@@ -184,46 +188,46 @@ git clone <REPO-URL> && cd aws-quick-webinar
 
 ## Block 6 — Custom chat agent (6 min) ⏱️ 0:51
 
-🎤 **A:** "So far we've used the default chat. For the customer service team, we want an **agent** with a fixed personality, rules and knowledge that anyone can use without configuring anything."
+🎤 **Elevata:** "So far we've used the default chat. For the customer service team, we want an **agent** with a fixed personality, rules and knowledge that anyone can use without configuring anything."
 
-🖱️ **B:** Menu → **Agents** (Chat agents) → **Create agent** → you can create it **by describing it in natural language** or configure it manually:
+🖱️ **Elevata:** Menu → **Agents** (Chat agents) → **Create agent** → you can create it **by describing it in natural language** or configure it manually:
 - **Name:** `Aurora Customer Service Assistant`
 - **Instructions / persona:** copy from `prompts/demo-prompts.md` → *Block 6*.
 - **Knowledge:** `Aurora Customer Service` Space (+ `Aurora Sales` dashboard).
 - **Sample messages / starters:** 3 frequently asked questions.
 - **Launch / Publish** → **Share** with a Reader user.
 
-🖱️ **B:** Test: `I received the Pulse headphones with a defect 2 months ago, I want my money back.`
+🖱️ **Elevata:** Test: `I received the Pulse headphones with a defect 2 months ago, I want my money back.`
 🎤 "It follows the tone of voice, cites the Audio line exception and offers immediate replacement. Since the customer asked for a refund and it's past 30 days, it explains the options correctly."
 
 ---
 
 ## Block 7 — Quick Flows (6 min) ⏱️ 0:57
 
-🎤 **A:** "Third pain point: repetitive tasks. A **Flow** is an automation you describe in plain language, and Quick builds the steps. Anyone can run it, no code required."
+🎤 **Elevata:** "Third pain point: repetitive tasks. A **Flow** is an automation you describe in plain language, and Quick builds the steps. Anyone can run it, no code required."
 
-🖱️ **B:** Menu → **Flows** → **Create flow** → paste the prompt from `prompts/demo-prompts.md` → *Block 7*:
+🖱️ **Elevata:** Menu → **Flows** → **Create flow** → paste the prompt from `prompts/demo-prompts.md` → *Block 7*:
 > *Create a flow that takes the text of a customer complaint and the order number as input. Classify the complaint according to the customer service manual (category and priority), check the returns policy in the "Aurora Customer Service" Space, and generate a ready-to-send reply to the customer, plus a 3-line internal summary for the supervisor.*
 
-🖱️ **B:** Show the generated steps (input → reasoning/AI → Space lookup → outputs). Edit one step to show it can be adjusted. **Run** it with the sample complaint from the prompts file.
+🖱️ **Elevata:** Show the generated steps (input → reasoning/AI → Space lookup → outputs). Edit one step to show it can be adjusted. **Run** it with the sample complaint from the prompts file.
 
-🎤 **A:** "Flows can also **take actions** in connected apps (create a Jira ticket, send a Slack/Teams message, email) using *Integrations/Actions*. For multi-step enterprise processes with approvals and high volume, there's **Quick Automate**."
+🎤 **Elevata:** "Flows can also **take actions** in connected apps (create a Jira ticket, send a Slack/Teams message, email) using *Integrations/Actions*. For multi-step enterprise processes with approvals and high volume, there's **Quick Automate**."
 
 ---
 
 ## Block 8 — Quick Research (3 min · bonus) ⏱️ 1:00
 
-🖱️ **B:** Menu → **Research** → new project → prompt from `prompts/demo-prompts.md` → *Block 8* → include the Space as a source.
+🖱️ **Elevata:** Menu → **Research** → new project → prompt from `prompts/demo-prompts.md` → *Block 8* → include the Space as a source.
 
-🎤 **A:** "Research builds a research plan, searches the web and your data, and delivers a report with citations. Since it takes a few minutes, **I started one before the webinar**. Let's look at the result."
+🎤 **Elevata:** "Research builds a research plan, searches the web and your data, and delivers a report with citations. Since it takes a few minutes, **I started one before the webinar**. Let's look at the result."
 
-🖱️ **B:** Open the pre-generated report and show the **citations** and the **research plan**.
+🖱️ **Elevata:** Open the pre-generated report and show the **citations** and the **research plan**.
 
 ---
 
 ## Block 9 — Costs, governance and cleanup (3 min) ⏱️ 1:03
 
-🎤 **A:** key points (slide):
+🎤 **Elevata:** key points (slide):
 - **Trial:** 30 days, up to 25 users. **After the trial, billing starts automatically** unless the account is canceled.
 - **Cost model:** per-user subscription + monthly account infrastructure fee + usage (SPICE, agent hours, etc.). Check the official page.
 - **Security:** identity via IAM Identity Center, encryption by default (optional KMS keys), data stays in your account, permissions per user and group.
@@ -233,7 +237,7 @@ git clone <REPO-URL> && cd aws-quick-webinar
 
 ## Block 10 — Q&A and closing (12 min) ⏱️ 1:15
 
-🎤 **A:** "To recap: in one hour we enabled Quick, gave the AI company knowledge with Spaces, built a dashboard and talked to our data, created a customer service agent and an automation. The repository has all of this as labs you can follow at your own pace."
+🎤 **Elevata:** "To recap: in one hour we enabled Quick, gave the AI company knowledge with Spaces, built a dashboard and talked to our data, created a customer service agent and an automation. The repository has all of this as labs you can follow at your own pace."
 
 🖱️ Final slide: repository link, team contact, next steps (guided POC, data workshop, etc.).
 
